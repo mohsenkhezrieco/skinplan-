@@ -19,25 +19,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
-      - run: npm install
+      - name: Install dependencies
+        run: npm install --no-audit --no-fund
 
-      - run: npm run cache-images
+      - name: Download product images
+        run: npm run cache-images
 
       - name: Commit cached images
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add assets/products
+
           if git diff --cached --quiet; then
             echo "No image changes"
           else
-            git commit -m "Cache local product packshots [skip image cache]"
+            git commit -m "Cache local product packshots"
             git push
           fi
