@@ -1,39 +1,23 @@
-# SkinPlan Clinic v15
+# SkinPlan Clinic v15.1 — Product Image Fix
 
-## Major changes
-- X3 direct-import backend retained.
-- Expanded curated Boots UK library: 34 products across 8 brands.
-- Brand Settings: enable/disable brands; disabled brands disappear from rankings and future plans.
-- Role-based rankings: the plan always uses the first enabled compatible product.
-- Product-image proxy: original Boots packshots are loaded through `/api/product-image` so reports can export more reliably.
-- New dark X3-inspired website UI with a white, print-friendly patient plan.
-- Treatment engine rebuilt as phases: safety/barrier first, then one primary active, then a later secondary phase.
-- Mixed acne + pigmentation uses one azelaic-acid pathway rather than stacking several actives.
-- Pigmentation-only can prefer Eucerin Thiamidol when enabled and barrier tolerance is adequate.
-- Sensitive/borderline ageing starts with peptide support; retinoid is later and conservative.
-- Product brand settings never override safety or compatibility.
+This patch keeps the v15 ranking/brand engine and fixes missing product images.
 
-## Included brands
-- The Ordinary
-- CeraVe
-- La Roche-Posay
-- Avène
-- Bioderma
-- Eucerin
-- Beauty of Joseon
-- The INKEY List
+## What changed
+`api/product-image.js` now resolves packshots in two stages:
+1. It opens the official Boots product page and extracts the current product image (Open Graph / Twitter / product JSON image).
+2. If that fails, it falls back to multiple Boots Scene7 image formats using the Boots stock code.
 
-## Update your live Vercel site
-Replace the contents of the existing GitHub repository with this version, preserving the same repository/project. Commit the changes. Vercel should automatically redeploy.
+The frontend now passes both the Boots stock code and the official Boots product-page URL to the image proxy. Failed images retry once with a cache-bypass parameter.
 
-Important new file:
+## Update the live site
+Replace these files in the existing GitHub repository:
+- `index.html`
+- `products.json`
 - `api/product-image.js`
+- `sw.js`
 
-Existing working file retained:
-- `api/x3-report.js`
+You do not need to change `api/x3-report.js`.
 
-## Ranking principle
-The role rankings are practical clinical-fit priorities, not universal head-to-head scientific superiority claims. They combine role suitability, irritation/tolerance considerations, formulation characteristics, UV coverage where relevant, simplicity, and current Boots UK availability.
+Commit the changes; Vercel should redeploy automatically.
 
-## Safety
-Cosmetic skincare maintenance guidance only. The X3 device scores are decision inputs, not medical diagnoses. Safety flags override automatic active selection.
+If a specific product still has no image after redeploying, send the product name shown in Product Library and it can be corrected individually.

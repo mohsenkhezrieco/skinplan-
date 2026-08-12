@@ -7,7 +7,7 @@
     "role": "barrier",
     "boots": "https://www.boots.com/the-ordinary-soothing-and-barrier-support-serum-10335060",
     "why": "Barrier support, hydration and visible redness support; preferred serum for recovery phases.",
-    "image": "/api/product-image?code=10335060"
+    "image": "/api/product-image?code=10335060&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary-soothing-and-barrier-support-serum-10335060"
   },
   {
     "id": "ord_phyto",
@@ -17,7 +17,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/the-ordinary-natural-moisturizing-factors-phytoceramides-100ml-10330796",
     "why": "Rich NMF/lipid/phyto-ceramide moisturiser for dry or compromised skin.",
-    "image": "/api/product-image?code=10330796"
+    "image": "/api/product-image?code=10330796&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary-natural-moisturizing-factors-phytoceramides-100ml-10330796"
   },
   {
     "id": "ord_beta",
@@ -27,7 +27,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/the-ordinary-natural-moisturizing-factors-beta-glucan-100ml-10329958",
     "why": "Lightweight moisturiser suited to oily/combination profiles.",
-    "image": "/api/product-image?code=10329958"
+    "image": "/api/product-image?code=10329958&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary-natural-moisturizing-factors-beta-glucan-100ml-10329958"
   },
   {
     "id": "ord_az",
@@ -37,7 +37,7 @@
     "role": "active",
     "boots": "https://www.boots.com/the-ordinary-azelaic-acid-suspension-10-10267775/",
     "why": "Preferred shared active for blemish + pigmentation pathways.",
-    "image": "/api/product-image?code=8630364"
+    "image": "/api/product-image?code=8630364&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary-azelaic-acid-suspension-10-10267775%2F"
   },
   {
     "id": "ord_sal",
@@ -47,7 +47,7 @@
     "role": "active",
     "boots": "https://www.boots.com/the-ordinary/the-ordinary-direct-acids/the-ordinary-salicylic-acid-2solution-30ml-10317695",
     "why": "Preferred leave-on BHA for blackhead/pore-dominant congestion when sensitivity is controlled.",
-    "image": "/api/product-image?code=10317695"
+    "image": "/api/product-image?code=10317695&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary%2Fthe-ordinary-direct-acids%2Fthe-ordinary-salicylic-acid-2solution-30ml-10317695"
   },
   {
     "id": "ord_nia",
@@ -57,7 +57,7 @@
     "role": "support",
     "boots": "https://www.boots.com/the-ordinary-niacinamide-10-zinc-1-10267783",
     "why": "Optional oil/shine and pore-appearance support; not used as a primary acne treatment.",
-    "image": "/api/product-image?code=10267783"
+    "image": "/api/product-image?code=10267783&page=https%3A%2F%2Fwww.boots.com%2Fthe-ordinary-niacinamide-10-zinc-1-10267783"
   },
   {
     "id": "ord_peptide",
@@ -67,7 +67,7 @@
     "role": "ageing",
     "boots": "https://www.boots.com/beauty/skincare/facial-skincare/anti-aging-products/the-ordinary-multi-peptide-ha-serum-30ml-10320154",
     "why": "Preferred non-retinoid ageing support for sensitive or borderline ageing profiles.",
-    "image": "/api/product-image?code=10320154"
+    "image": "/api/product-image?code=10320154&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fskincare%2Ffacial-skincare%2Fanti-aging-products%2Fthe-ordinary-multi-peptide-ha-serum-30ml-10320154"
   },
   {
     "id": "ord_aloe",
@@ -77,7 +77,7 @@
     "role": "support",
     "boots": "https://www.boots.com/beauty/vegan-range/the-ordinary-aloe-2--nag-2-solution-30ml-10328368",
     "why": "Gentle post-blemish/texture support used only in later phases and not with direct acids.",
-    "image": "/api/product-image?code=10328368"
+    "image": "/api/product-image?code=10328368&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fvegan-range%2Fthe-ordinary-aloe-2--nag-2-solution-30ml-10328368"
   },
   {
     "id": "ord_granactive",
@@ -87,7 +87,7 @@
     "role": "retinoid",
     "boots": "https://www.boots.com/beauty/skincare/skincare-all-skincare/the-ordinary-granactive-retinoid-2-emulsion-10267778",
     "why": "Retinoid fallback when CeraVe is disabled; never used in pregnancy or with acids in the same routine.",
-    "image": "/api/product-image?code=8629730"
+    "image": "/api/product-image?code=8629730&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fskincare%2Fskincare-all-skincare%2Fthe-ordinary-granactive-retinoid-2-emulsion-10267778"
   },
   {
     "id": "cerave_hydrating",
@@ -97,7 +97,7 @@
     "role": "cleanser",
     "boots": "https://www.boots.com/cerave/cerave-dry-normal-skin/cerave-hydrating-cleanser-236ml-10246701-",
     "why": "Gentle default cleanser for dry, sensitive or barrier-impaired profiles.",
-    "image": "/api/product-image?code=10246701"
+    "image": "/api/product-image?code=10246701&page=https%3A%2F%2Fwww.boots.com%2Fcerave%2Fcerave-dry-normal-skin%2Fcerave-hydrating-cleanser-236ml-10246701-"
   },
   {
     "id": "cerave_foaming",
@@ -107,7 +107,7 @@
     "role": "cleanser",
     "boots": "https://www.boots.com/cerave-foaming-cleanser-236ml-10246702",
     "why": "Simple foaming cleanser for robust oily profiles.",
-    "image": "/api/product-image?code=10246702"
+    "image": "/api/product-image?code=10246702&page=https%3A%2F%2Fwww.boots.com%2Fcerave-foaming-cleanser-236ml-10246702"
   },
   {
     "id": "cerave_cream",
@@ -117,7 +117,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/beauty/skincare/skin-type/cerave-moisturising-cream-pot-454g-10246704",
     "why": "Ceramide-rich rich moisturiser; strong value fallback for dry/very dry skin.",
-    "image": "/api/product-image?code=8105693"
+    "image": "/api/product-image?code=8105693&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fskincare%2Fskin-type%2Fcerave-moisturising-cream-pot-454g-10246704"
   },
   {
     "id": "cerave_retinol",
@@ -127,7 +127,7 @@
     "role": "retinoid",
     "boots": "https://www.boots.com/cerave-resurfacing-retinol-serum-with-ceramides--niacinamide-for-blemish-prone-skin-30ml-10315626",
     "why": "Preferred starter retinol in the engine because the automatic schedule is conservative.",
-    "image": "/api/product-image?code=10315626"
+    "image": "/api/product-image?code=10315626&page=https%3A%2F%2Fwww.boots.com%2Fcerave-resurfacing-retinol-serum-with-ceramides--niacinamide-for-blemish-prone-skin-30ml-10315626"
   },
   {
     "id": "cerave_am_spf",
@@ -137,7 +137,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/beauty/skincare/expert-skincare-/beauty-expert-skincare-expert-skincare-shop-all/cerave-am-facial-moisturising-lotion-spf-50-for-normal-to-dry-skin-52ml-10311334",
     "why": "Moisturising SPF50 fallback for dry skin when specialist sunscreens are disabled.",
-    "image": "/api/product-image?code=10311334"
+    "image": "/api/product-image?code=10311334&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fskincare%2Fexpert-skincare-%2Fbeauty-expert-skincare-expert-skincare-shop-all%2Fcerave-am-facial-moisturising-lotion-spf-50-for-normal-to-dry-skin-52ml-10311334"
   },
   {
     "id": "lrp_dermo",
@@ -147,7 +147,7 @@
     "role": "cleanser",
     "boots": "https://www.boots.com/la-roche-posay/la-roche-posay-sensitive-skin/la-roche-posay-toleriane-dermo-cleanser-200ml-10083653",
     "why": "Top-ranked ultra-gentle cleanser for highly reactive/sensitive skin.",
-    "image": "/api/product-image?code=3956563"
+    "image": "/api/product-image?code=3956563&page=https%3A%2F%2Fwww.boots.com%2Fla-roche-posay%2Fla-roche-posay-sensitive-skin%2Fla-roche-posay-toleriane-dermo-cleanser-200ml-10083653"
   },
   {
     "id": "lrp_dermallergo",
@@ -157,7 +157,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/la-roche-posay-dermallergo-soothing-cream-40ml-10302966",
     "why": "High-tolerance moisturiser for sensitive to ultra-sensitive dry skin.",
-    "image": "/api/product-image?code=7907117"
+    "image": "/api/product-image?code=7907117&page=https%3A%2F%2Fwww.boots.com%2Fla-roche-posay-dermallergo-soothing-cream-40ml-10302966"
   },
   {
     "id": "lrp_cicaplast",
@@ -167,7 +167,7 @@
     "role": "rescue",
     "boots": "https://www.boots.com/la-roche-posay/la-roche-posay-moisturisers/la-roche-posay-cicaplast-balm-40ml-10189518",
     "why": "Top rescue balm for local irritation/dry patches; not automatically used as the whole-face daily moisturiser.",
-    "image": "/api/product-image?code=6187382"
+    "image": "/api/product-image?code=6187382&page=https%3A%2F%2Fwww.boots.com%2Fla-roche-posay%2Fla-roche-posay-moisturisers%2Fla-roche-posay-cicaplast-balm-40ml-10189518"
   },
   {
     "id": "lrp_uvmune",
@@ -177,7 +177,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/beauty/skincare/skin-type/la-roche-posay-anthelios-uvmune-400-invisible-fluid-spf50-50ml-10306562",
     "why": "Top-ranked high-UVA sunscreen for pigmentation/photoageing and sensitive skin.",
-    "image": "/api/product-image?code=9005250"
+    "image": "/api/product-image?code=9005250&page=https%3A%2F%2Fwww.boots.com%2Fbeauty%2Fskincare%2Fskin-type%2Fla-roche-posay-anthelios-uvmune-400-invisible-fluid-spf50-50ml-10306562"
   },
   {
     "id": "lrp_uvmune_oil",
@@ -187,7 +187,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/toiletries/suncare/sunprotection/la-roche-posay-anthelios-uvmune-400-oil-control-fluid-50ml-10324047",
     "why": "Top-ranked SPF50+ for oily/blemish-prone profiles.",
-    "image": "/api/product-image?code=5292379"
+    "image": "/api/product-image?code=5292379&page=https%3A%2F%2Fwww.boots.com%2Ftoiletries%2Fsuncare%2Fsunprotection%2Fla-roche-posay-anthelios-uvmune-400-oil-control-fluid-50ml-10324047"
   },
   {
     "id": "lrp_retinol_b3",
@@ -197,7 +197,7 @@
     "role": "retinoid",
     "boots": "https://www.boots.com/la-roche-posay-retinol-b3-serum-30ml-10274729",
     "why": "Retinol alternative if preferred brands exclude CeraVe/The Ordinary; only for robust skin and later phases.",
-    "image": "/api/product-image?code=8752338"
+    "image": "/api/product-image?code=8752338&page=https%3A%2F%2Fwww.boots.com%2Fla-roche-posay-retinol-b3-serum-30ml-10274729"
   },
   {
     "id": "avene_cleanser",
@@ -207,7 +207,7 @@
     "role": "cleanser",
     "boots": "https://www.boots.com/avene-extremely-gentle-cleanser-200ml-10193386",
     "why": "Excellent fragrance-free no-rinse cleanser for hypersensitive/reactive skin.",
-    "image": "/api/product-image?code=6262147"
+    "image": "/api/product-image?code=6262147&page=https%3A%2F%2Fwww.boots.com%2Favene-extremely-gentle-cleanser-200ml-10193386"
   },
   {
     "id": "avene_tolerance_cream",
@@ -217,7 +217,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/av%C3%A8ne-tol%C3%89rance-soothing-skin-recovery-cream-40ml-10298238",
     "why": "Top lightweight high-tolerance moisturiser for reactive/sensitive skin.",
-    "image": "/api/product-image?code=4736796"
+    "image": "/api/product-image?code=4736796&page=https%3A%2F%2Fwww.boots.com%2Fav%25C3%25A8ne-tol%25C3%2589rance-soothing-skin-recovery-cream-40ml-10298238"
   },
   {
     "id": "avene_tolerance_balm",
@@ -227,7 +227,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/av%C3%A8ne-tol%C3%89rance-soothing-skin-recovery-balm-40ml-10298239",
     "why": "Top rich moisturiser for dry hypersensitive/reactive skin.",
-    "image": "/api/product-image?code=4736818"
+    "image": "/api/product-image?code=4736818&page=https%3A%2F%2Fwww.boots.com%2Fav%25C3%25A8ne-tol%25C3%2589rance-soothing-skin-recovery-balm-40ml-10298239"
   },
   {
     "id": "avene_cicalfate",
@@ -237,7 +237,7 @@
     "role": "rescue",
     "boots": "https://www.boots.com/avene-cicalfate-plus-restroritive-cream-40ml-10275275",
     "why": "High-quality alternative rescue cream for local irritated/dry areas.",
-    "image": "/api/product-image?code=8758468"
+    "image": "/api/product-image?code=8758468&page=https%3A%2F%2Fwww.boots.com%2Favene-cicalfate-plus-restroritive-cream-40ml-10275275"
   },
   {
     "id": "bioderma_sensibio_gel",
@@ -247,7 +247,7 @@
     "role": "cleanser",
     "boots": "https://www.boots.com/bioderma-sensibio-foaming-gel-face-wash-for-sensitive-skin-200ml-10364379",
     "why": "Gentle soap-free cleanser for sensitive skin; useful when a rinse-off gel is preferred.",
-    "image": "/api/product-image?code=9213872"
+    "image": "/api/product-image?code=9213872&page=https%3A%2F%2Fwww.boots.com%2Fbioderma-sensibio-foaming-gel-face-wash-for-sensitive-skin-200ml-10364379"
   },
   {
     "id": "bioderma_defensive",
@@ -257,7 +257,7 @@
     "role": "barrier",
     "boots": "https://www.boots.com/bioderma/bioderma-face-care/bioderma-sensibio-defensive-serum-soothing-serum-for-sensitive-skin-30ml-10324364",
     "why": "Strong sensitive-skin barrier/soothing alternative if The Ordinary is disabled.",
-    "image": "/api/product-image?code=5297834"
+    "image": "/api/product-image?code=5297834&page=https%3A%2F%2Fwww.boots.com%2Fbioderma%2Fbioderma-face-care%2Fbioderma-sensibio-defensive-serum-soothing-serum-for-sensitive-skin-30ml-10324364"
   },
   {
     "id": "bioderma_sebium_hydra",
@@ -267,7 +267,7 @@
     "role": "moisturiser",
     "boots": "https://www.boots.com/bioderma/bioderma-best-sellers/bioderma-sebium-ultra-nourishing-cream-very-dry-acne-prone-skin-40ml-10202418",
     "why": "Useful niche moisturiser when acne-prone skin has become very dry/tight.",
-    "image": "/api/product-image?code=6414095"
+    "image": "/api/product-image?code=6414095&page=https%3A%2F%2Fwww.boots.com%2Fbioderma%2Fbioderma-best-sellers%2Fbioderma-sebium-ultra-nourishing-cream-very-dry-acne-prone-skin-40ml-10202418"
   },
   {
     "id": "bioderma_xdefense",
@@ -277,7 +277,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/bioderma-photoderm-x-defense-ultra-fluid-spf50-face-sunscreen-40ml-10363690",
     "why": "Broad environmental/visible-light protection option; lower rank for very reactive skin because the invisible version is fragranced.",
-    "image": "/api/product-image?code=9213643"
+    "image": "/api/product-image?code=9213643&page=https%3A%2F%2Fwww.boots.com%2Fbioderma-photoderm-x-defense-ultra-fluid-spf50-face-sunscreen-40ml-10363690"
   },
   {
     "id": "eucerin_dual",
@@ -287,7 +287,7 @@
     "role": "pigment",
     "boots": "https://www.boots.com/toiletries/skincare/shop-skincare-ingredients/eucerin-anti-pigment-dual-serum-thiamidol-and-hyaluronic-acid-10256457",
     "why": "Top-ranked pigment-only serum in robust skin due to dedicated Thiamidol dark-spot targeting.",
-    "image": "/api/product-image?code=8329117"
+    "image": "/api/product-image?code=8329117&page=https%3A%2F%2Fwww.boots.com%2Ftoiletries%2Fskincare%2Fshop-skincare-ingredients%2Feucerin-anti-pigment-dual-serum-thiamidol-and-hyaluronic-acid-10256457"
   },
   {
     "id": "eucerin_pigment_spf",
@@ -297,7 +297,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/eucerin-sun-pigment-control-spf50-50ml-10265714",
     "why": "Excellent SPF50+ choice for hyperpigmentation; combines UV/HEVIS protection with Thiamidol.",
-    "image": "/api/product-image?code=8379564"
+    "image": "/api/product-image?code=8379564&page=https%3A%2F%2Fwww.boots.com%2Feucerin-sun-pigment-control-spf50-50ml-10265714"
   },
   {
     "id": "eucerin_oil_spf",
@@ -307,7 +307,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/eucerin-sun-oil-control-face-protection-spf-50-10242719",
     "why": "High-ranked oily/acne-prone SPF50+ with a matte finish.",
-    "image": "/api/product-image?code=8061300"
+    "image": "/api/product-image?code=8061300&page=https%3A%2F%2Fwww.boots.com%2Feucerin-sun-oil-control-face-protection-spf-50-10242719"
   },
   {
     "id": "boj_relief",
@@ -317,7 +317,7 @@
     "role": "spf",
     "boots": "https://www.boots.com/beauty-of-joseon-relief-sun--rice-and-probiotics-50ml-10348088",
     "why": "Comfortable hydrating daily sunscreen; ranked below specialist pigmentation SPFs but excellent for adherence.",
-    "image": "/api/product-image?code=5218357"
+    "image": "/api/product-image?code=5218357&page=https%3A%2F%2Fwww.boots.com%2Fbeauty-of-joseon-relief-sun--rice-and-probiotics-50ml-10348088"
   },
   {
     "id": "inkey_az",
@@ -327,7 +327,7 @@
     "role": "active",
     "boots": "https://www.boots.com/the-inkey-list/the-inkey-list-shop-all/supersolutions-10-azelaic-serum-10316417",
     "why": "Azelaic-acid alternative if The Ordinary is disabled.",
-    "image": "/api/product-image?code=3836479"
+    "image": "/api/product-image?code=3836479&page=https%3A%2F%2Fwww.boots.com%2Fthe-inkey-list%2Fthe-inkey-list-shop-all%2Fsupersolutions-10-azelaic-serum-10316417"
   },
   {
     "id": "inkey_bha",
@@ -337,6 +337,6 @@
     "role": "active",
     "boots": "https://www.boots.com/the-inkey-list-beta-hydroxy-acid-serum-30ml-10271185",
     "why": "Salicylic/BHA alternative for congestion if The Ordinary is disabled.",
-    "image": "/api/product-image?code=8644012"
+    "image": "/api/product-image?code=8644012&page=https%3A%2F%2Fwww.boots.com%2Fthe-inkey-list-beta-hydroxy-acid-serum-30ml-10271185"
   }
 ]
