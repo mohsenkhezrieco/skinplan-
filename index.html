@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>SkinPlan Clinic v16.2</title>
+<title>SkinPlan Clinic v16.3</title>
 <meta name="theme-color" content="#272764">
 <link rel="manifest" href="manifest.webmanifest">
 <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
@@ -62,12 +62,29 @@ button{border:0;border-radius:12px;padding:11px 15px;cursor:pointer;font-weight:
 @media(max-width:700px){.phaseProduct{grid-template-columns:90px 1fr}.phaseProduct img{width:85px;height:85px}.selectedGrid{grid-template-columns:1fr}}
 @media print{.phaseProduct,.selectedCard{break-inside:avoid}}
 
+
+.phaseDetailed{border:1px solid #dfe3ee;border-radius:15px;padding:14px;margin-top:14px;background:#fff}
+.phaseDetailed>h3{margin:0 0 6px;color:#2e2b72;font-size:18px}
+.phaseIntro{font-size:11px;color:#5f6980;line-height:1.55;margin-bottom:9px}
+.phaseRoutineBand{font-weight:900;text-align:center;border-radius:9px;padding:8px;margin:11px 0 8px;font-size:12px}
+.phaseRoutineBand.morning{background:#fff0a9;color:#46370d}
+.phaseRoutineBand.treatment{background:#e9e5ff;color:#3b2a7a}
+.phaseRoutineBand.recovery{background:#dff3ff;color:#164f78}
+.phaseRoutineNote{font-size:10px;color:#5e687e;line-height:1.45;margin:-2px 0 8px;padding:0 4px}
+.phaseRule{background:#f7f5ff;border-left:4px solid #6b5cff;border-radius:9px;padding:9px 10px;font-size:10px;line-height:1.5;margin-top:9px}
+.phaseDetailed .steps{margin-bottom:4px}
+@media print{
+  .phaseDetailed{break-inside:auto}
+  .phaseRoutineBand,.phaseRule{break-after:avoid}
+  .phaseDetailed .steps{break-inside:avoid}
+}
+
 </style>
 </head>
 <body>
 <div class="shell">
   <div class="hero no-print">
-    <div><h1>SkinPlan Clinic v16.2</h1><p>X3 report → ranked product engine → phased personalised plan</p></div>
+    <div><h1>SkinPlan Clinic v16.3</h1><p>X3 report → ranked product engine → phased personalised plan</p></div>
     <div class="badge">X3 API · local product-image library</div>
   </div>
 
@@ -416,6 +433,92 @@ function selectedProductCardHTML(p){
   </div>`;
 }
 
+
+function routineStepTitle(p,index){
+  if(index===0 && p.role==='cleanser')return 'Cleanse';
+  if(p.role==='spf')return 'Protect SPF50+';
+  if(p.role==='barrier')return 'Barrier support';
+  if(p.role==='moisturiser')return 'Moisturise';
+  if(p.role==='retinoid')return 'Retinoid treatment';
+  if(p.role==='ageing')return 'Ageing support';
+  if(p.role==='active'){
+    if(/azelaic/i.test(p.name))return 'Azelaic-acid treatment';
+    if(/salicylic|beta hydroxy|bha/i.test(p.name))return 'BHA / salicylic treatment';
+    return 'Treatment active';
+  }
+  if(p.role==='pigment')return 'Pigmentation treatment';
+  if(p.role==='support')return 'Support treatment';
+  return 'Treatment step';
+}
+function routineCards(products){
+  return `<div class="steps">${products.map((p,i)=>stepCard(p,routineStepTitle(p,i),i)).join('')}</div>`;
+}
+function isMorningDailyActive(p){
+  // The current engine's dedicated Thiamidol serum is the only treatment
+  // deliberately scheduled as a once-daily morning treatment.
+  return p && p.id==='eucerin_dual';
+}
+function compactPhaseName(title){
+  return title
+    .replace(/^Phase \d+\s*·\s*/,'')
+    .replace(/\s*—\s*.*/,'')
+    .trim();
+}
+function phaseDetailedHTML(plan,phaseIndex){
+  const phase=plan.phases[phaseIndex];
+  const introduced=plan.phases
+    .slice(0,phaseIndex+1)
+    .map((ph,idx)=>({phase:ph,index:idx,active:ph.active}))
+    .filter(x=>x.active);
+
+  const morningActives=introduced.filter(x=>isMorningDailyActive(x.active));
+  const eveningActives=introduced.filter(x=>!isMorningDailyActive(x.active));
+
+  const morning=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)morning.push(plan.base.barrierSerum);
+  morningActives.forEach(x=>morning.push(x.active));
+  morning.push(plan.base.moisturiser,plan.base.spf);
+
+  const recovery=[plan.base.cleanser];
+  if(plan.barrierFirst && plan.base.barrierSerum)recovery.push(plan.base.barrierSerum);
+  recovery.push(plan.base.moisturiser);
+
+  let html=`<div class="phaseDetailed">
+    <h3>${phase.title}</h3>
+    <div class="phaseIntro"><b>Phase instruction:</b> ${phase.frequency}</div>
+    ${phase.instructions.length?`<ul class="phaseIntro">${phase.instructions.map(x=>`<li>${x}</li>`).join('')}</ul>`:''}
+
+    <div class="phaseRoutineBand morning">☀ MORNING — EVERY DAY DURING THIS PHASE</div>
+    ${routineCards(morning)}`;
+
+  if(eveningActives.length===0){
+    html+=`
+      <div class="phaseRoutineBand recovery">☾ EVENING — EVERY NIGHT DURING THIS PHASE</div>
+      <div class="phaseRoutineNote">Barrier/recovery routine only.</div>
+      ${routineCards(recovery)}`;
+  }else{
+    eveningActives.forEach(item=>{
+      const current=item.index===phaseIndex;
+      const freq=current
+        ? item.phase.frequency
+        : `Continue this treatment only at the tolerated frequency established in ${compactPhaseName(item.phase.title)}.`;
+      html+=`
+        <div class="phaseRoutineBand treatment">☾ EVENING — ${routineStepTitle(item.active,1).toUpperCase()} NIGHTS</div>
+        <div class="phaseRoutineNote">${freq}</div>
+        ${routineCards([plan.base.cleanser,item.active,plan.base.moisturiser])}`;
+    });
+
+    html+=`
+      <div class="phaseRoutineBand recovery">☾ EVENING — RECOVERY NIGHTS</div>
+      <div class="phaseRoutineNote">Use this routine on evenings not assigned to one of the treatment routines above.</div>
+      ${routineCards(recovery)}
+      <div class="phaseRule"><b>Important:</b> treatment-night routines are separate. Do not use two listed treatment actives on the same evening unless the plan explicitly says to do so.</div>`;
+  }
+
+  html+='</div>';
+  return html;
+}
+
 function generateReport(){
   try{
     const plan=buildPlan(),routine=currentRoutine(plan),ref=(document.getElementById('patient').value||'Patient').replace(/[<>]/g,'');
@@ -430,7 +533,7 @@ function generateReport(){
       <div class="band pm">☾ EVENING — CURRENT PHASE</div>
       <div class="steps">${routine.evening.map((p,i)=>stepCard(p,i===0?'Cleanse':p.role==='barrier'?'Barrier support':'Moisturise',i)).join('')}</div>
       <div class="band phaseband">PHASED TREATMENT PLAN</div>
-      ${plan.phases.map(ph=>`<div class="phase"><h3>${ph.title}</h3>${ph.active?phaseProductHTML(ph.active):''}<p>${ph.frequency}</p><ul>${ph.instructions.map(x=>`<li>${x}</li>`).join('')}</ul></div>`).join('')}
+      ${plan.phases.map((ph,idx)=>phaseDetailedHTML(plan,idx)).join('')}
       <div class="warnbox"><b>Do not use / pause</b><ul>${plan.avoid.map(x=>`<li>${x}</li>`).join('')}</ul></div>
       ${plan.referral.length?`<div class="warnbox"><b>When this plan is not enough</b><ul>${plan.referral.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
       <div class="phase"><h3>Products selected by the ranking engine</h3><div class="selectedGrid">${selectedUnique.map(selectedProductCardHTML).join('')}</div></div>
@@ -442,7 +545,7 @@ document.getElementById('generateBtn').onclick=generateReport;
 
 document.getElementById('pngBtn').onclick=async()=>{
   const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing…';
-  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v16-2.png';a.href=c.toDataURL('image/png');a.click()}
+  try{const c=await html2canvas(document.getElementById('report'),{scale:2,backgroundColor:'#fff',useCORS:true});const a=document.createElement('a');a.download='skinplan-report-v16-3.png';a.href=c.toDataURL('image/png');a.click()}
   catch(e){alert('PNG export failed. Use Print / Save PDF instead.')}finally{btn.disabled=false;btn.textContent=old}
 };
 

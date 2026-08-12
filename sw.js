@@ -1,4 +1,4 @@
-const CACHE='skinplan-v16-2';
+const CACHE='skinplan-v16-3';
 const SHELL=['/','/index.html','/manifest.webmanifest','/icon.svg'];
 
 self.addEventListener('install', event => {
