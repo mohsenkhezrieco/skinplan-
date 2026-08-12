@@ -1,0 +1,240 @@
+{
+  "ord_barrier": {
+    "name": "Soothing & Barrier Support Serum 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://www.ecatalog.pk/wp-content/uploads/2025/02/the-ordinary-soothing-barrier-support-serum.png"
+    ]
+  },
+  "ord_phyto": {
+    "name": "Natural Moisturizing Factors + PhytoCeramides 100ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://www.makeupsens.com/49606/the-ordinary-natural-moisturizing-factors-phytoceramides.jpg"
+    ]
+  },
+  "ord_beta": {
+    "name": "Natural Moisturizing Factors + Beta Glucan 100ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://cdn.notinoimg.com/detail_main_hq/the_ordinary/769915232400_04/the-ordinary-natural-moisturizing-factors-beta-glucan-crema-gel-idratante___230613.jpg"
+    ]
+  },
+  "ord_az": {
+    "name": "Azelaic Acid Suspension 10% 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://www.bigw.com.au/medias/sys_master/images/images/h05/h24/103068930736158.jpg"
+    ]
+  },
+  "ord_sal": {
+    "name": "Salicylic Acid 2% Solution 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://cdn.shantaweb.com/thumbnails/big/products_1766235692_9762.png"
+    ]
+  },
+  "ord_nia": {
+    "name": "Niacinamide 10% + Zinc 1% 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://media.myaster.com/images/products/1060952/the-ordinary-niacinamide-10-zinc-1-water-based-serum-30ml/1060952_3.jpg?fit=bounds&width=840"
+    ]
+  },
+  "ord_peptide": {
+    "name": "Multi-Peptide + HA Serum 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://cdn.redcare-pharmacie.fr/images/BE0/465/784/7/BE04657847-p3-fr.jpg"
+    ]
+  },
+  "ord_aloe": {
+    "name": "Aloe 2% + NAG 2% Solution 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://cdn11.bigcommerce.com/s-63354/images/stencil/1280x1280/products/6838/16780/The_Ordinary_-_Aloe_2_NAG_2_Solution_30ml__53234.1687174954.jpg?c=2"
+    ]
+  },
+  "ord_granactive": {
+    "name": "Granactive Retinoid 2% Emulsion 30ml",
+    "brand": "The Ordinary",
+    "sources": [
+      "https://beautyhouse.co/wp-content/uploads/2019/03/graactide.jpg"
+    ]
+  },
+  "cerave_hydrating": {
+    "name": "Hydrating Cleanser 236ml",
+    "brand": "CeraVe",
+    "sources": [
+      "https://leftovershop.pk/cdn/shop/files/IMG-7171.webp?v=1749457684"
+    ]
+  },
+  "cerave_foaming": {
+    "name": "Foaming Cleanser 236ml",
+    "brand": "CeraVe",
+    "sources": [
+      "https://www.adorebeauty.co.nz/pim_media/000/446/165/CeraVe_Foaming_Cleanser_236ml.png?fmt=webp&h=386&w=386"
+    ]
+  },
+  "cerave_cream": {
+    "name": "Moisturising Cream 454g",
+    "brand": "CeraVe",
+    "sources": [
+      "https://s4.thcdn.com/productimg/1600/1600/11798691-1975145763464057.jpg"
+    ]
+  },
+  "cerave_retinol": {
+    "name": "Resurfacing Retinol Serum 30ml",
+    "brand": "CeraVe",
+    "sources": [
+      "https://labelpara.ma/wp-content/uploads/2024/11/CCER030.jpg"
+    ]
+  },
+  "cerave_am_spf": {
+    "name": "AM Facial Moisturising Lotion SPF50",
+    "brand": "CeraVe",
+    "sources": [
+      "https://thevitaminshop.pk/cdn/shop/files/9993326035257_0_1200x1200.jpg?v=1775030198"
+    ]
+  },
+  "lrp_dermo": {
+    "name": "Toleriane Dermo-Cleanser 200ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://www.healthana.co/cdn/shop/files/TOLERIANEGENTLECREAMDERMO-CLEANSER200ML.jpg?v=1718536093"
+    ]
+  },
+  "lrp_dermallergo": {
+    "name": "Toleriane Dermallergo Soothing Cream 40ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://pretties.com.hk/cdn/shop/products/LRP-757614_1__website.jpg?v=1758623375"
+    ]
+  },
+  "lrp_cicaplast": {
+    "name": "Cicaplast Baume B5+ 40ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://media.naheed.pk/catalog/product/cache/ff36c7bc52e2e5dbc63cd67fba513679/1/2/1257691-25rpl-1_1.jpg"
+    ]
+  },
+  "lrp_uvmune": {
+    "name": "Anthelios UVMune 400 Invisible Fluid SPF50+ 50ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://media.myaster.com/images/products/1048235/la-roche-posay-anthelios-uvmune-400-spf50-sunscreen-50ml/1048235_1new.jpg?fit=bounds&width=840"
+    ]
+  },
+  "lrp_uvmune_oil": {
+    "name": "Anthelios UVMune 400 Oil Control Fluid SPF50+ 50ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://www.dischem.co.za/api/catalog/product/3/3/3337875847292_front_7cb42752a4cbf15ce471db5ec9aeeafe.jpg?height=400&image-type=image&store=default&width=400"
+    ]
+  },
+  "lrp_retinol_b3": {
+    "name": "Retinol B3 Serum 30ml",
+    "brand": "La Roche-Posay",
+    "sources": [
+      "https://www.bloompharmacy.com/cdn/shop/products/la-roche-posay-retinol-b3-serum-30ml-786576.jpg?v=1687732890"
+    ]
+  },
+  "avene_cleanser": {
+    "name": "Tolérance Extremely Gentle Cleanser 200ml",
+    "brand": "Avène",
+    "sources": [
+      "https://www.adorebeauty.com.au/pim_media/000/395/905/Av%C3%A8ne_Tolerance_Extremely_Gentle_Cleanser_200ml_-_hero.png?fmt=webp&h=772&w=772"
+    ]
+  },
+  "avene_tolerance_cream": {
+    "name": "Tolérance Control Soothing Skin Recovery Cream 40ml",
+    "brand": "Avène",
+    "sources": [
+      "https://www.dischem.co.za/api/catalog/product/3/2/3282770138801_front_613231fb47bff10b523c5c780f8ce29a.jpg?height=400&image-type=image&store=default&width=400"
+    ]
+  },
+  "avene_tolerance_balm": {
+    "name": "Tolérance Control Soothing Skin Recovery Balm 40ml",
+    "brand": "Avène",
+    "sources": [
+      "https://media.meds.se/meds/images/maxx-27409021-g-2022-02-10-140127877/0/0/auto/c/avene-tolerance-control-soothing-skin-recovery-balm-40-ml.jpeg"
+    ]
+  },
+  "avene_cicalfate": {
+    "name": "Cicalfate+ Restorative Protective Cream 40ml",
+    "brand": "Avène",
+    "sources": [
+      "https://www.yeswellness.com/cdn/shop/files/Avene_Cicalfate_Restorative_Cream.jpg?v=1741188739"
+    ]
+  },
+  "bioderma_sensibio_gel": {
+    "name": "Sensibio Foaming Gel 200ml",
+    "brand": "Bioderma",
+    "sources": [
+      "https://image-cdn.ubuy.com/bioderma-sensibio-foaming-gel/400_400_100/6676cd82dcea845581368b13.jpg"
+    ]
+  },
+  "bioderma_defensive": {
+    "name": "Sensibio Defensive Serum 30ml",
+    "brand": "Bioderma",
+    "sources": [
+      "https://detommasis.it/image/cache/catalog/Bioderma%20Sensibio%20Defensive%20Siero%20Idratante_Lenitivo%2030ml-766x1000.png"
+    ]
+  },
+  "bioderma_sebium_hydra": {
+    "name": "Sébium Ultra-Nourishing Cream 40ml",
+    "brand": "Bioderma",
+    "sources": [
+      "https://vitamania.kz/image/cache/catalog/easyphoto/bioderma-uvlazhnyayushchiy-krem-sebium-hydra-bioderma-gidra-40-ml-680x680.jpg"
+    ]
+  },
+  "bioderma_xdefense": {
+    "name": "Photoderm XDefense Ultra Fluid SPF50+ 40ml",
+    "brand": "Bioderma",
+    "sources": [
+      "https://lafamilleatable.com/cdn/shop/files/03701129813614_C1N1_s02_a16e39c9-1a06-4834-8ef6-f7d69d55d4db.jpg?v=1757585357&width=1445"
+    ]
+  },
+  "eucerin_dual": {
+    "name": "Anti-Pigment Dual Serum 30ml",
+    "brand": "Eucerin",
+    "sources": [
+      "https://meikrem.vtexassets.com/arquivos/ids/159540/AntipigmentDual-Eucerin-Serum.jpg.jpg?v=638785302498630000"
+    ]
+  },
+  "eucerin_pigment_spf": {
+    "name": "Sun Pigment Control SPF50+ 50ml",
+    "brand": "Eucerin",
+    "sources": [
+      "https://www.watsons.ae/cdn/shop/files/ASW200002186_101_0913d3c3-11e6-492d-8c40-04ca7a84058b.jpg?v=1756899570"
+    ]
+  },
+  "eucerin_oil_spf": {
+    "name": "Sun Oil Control Dry Touch SPF50+ 50ml",
+    "brand": "Eucerin",
+    "sources": [
+      "https://m.media-amazon.com/images/I/61ItGj7kJ-L.jpg"
+    ]
+  },
+  "boj_relief": {
+    "name": "Relief Sun: Rice + Probiotics SPF50+ PA++++ 50ml",
+    "brand": "Beauty of Joseon",
+    "sources": [
+      "https://static.sole.ro/cs-photos/products/original/relief-sun-cream-spf-50-crema-de-fata-cu-extract-de-orez-si-probiotice-50-ml_25270_6_1771572043.jpg"
+    ]
+  },
+  "inkey_az": {
+    "name": "SuperSolutions 10% Azelaic Acid Serum 30ml",
+    "brand": "The INKEY List",
+    "sources": [
+      "https://skinstash.pk/cdn/shop/files/Untitleddesign-2024-08-10T170426.209.png?v=1754244477"
+    ]
+  },
+  "inkey_bha": {
+    "name": "Beta Hydroxy Acid Serum 30ml",
+    "brand": "The INKEY List",
+    "sources": [
+      "https://i.makeup.it/600x600/3jtcxjo28ch4.jpg"
+    ]
+  }
+}

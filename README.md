@@ -1,23 +1,30 @@
-# SkinPlan Clinic v15.1 — Product Image Fix
+# SkinPlan Clinic v16 — Local Product Images
 
-This patch keeps the v15 ranking/brand engine and fixes missing product images.
+This version removes the runtime product-image proxy. The website uses only local paths under `assets/products/`.
 
-## What changed
-`api/product-image.js` now resolves packshots in two stages:
-1. It opens the official Boots product page and extracts the current product image (Open Graph / Twitter / product JSON image).
-2. If that fails, it falls back to multiple Boots Scene7 image formats using the Boots stock code.
+## What happens after you upload this version to GitHub
+1. GitHub Actions runs `Cache product packshots`.
+2. It downloads the current product packshots once.
+3. It converts them to consistent 900×900 JPEG files.
+4. It commits those files into `assets/products/` in your repository.
+5. That commit triggers a second Vercel deployment.
+6. From then on the live website/report uses repository-local images and does not depend on the external product-image URLs.
 
-The frontend now passes both the Boots stock code and the official Boots product-page URL to the image proxy. Failed images retry once with a cache-bypass parameter.
+Ten product images are already seeded from your previous local SkinPlan assets. The workflow replaces or fills the rest when downloads succeed. If a retailer blocks an image, the existing local file is kept instead of being deleted.
 
-## Update the live site
-Replace these files in the existing GitHub repository:
-- `index.html`
-- `products.json`
-- `api/product-image.js`
-- `sw.js`
+## Files to upload
+Upload the complete contents of this ZIP to the existing GitHub repository. Important new folders/files:
+- `.github/workflows/cache-product-images.yml`
+- `scripts/fetch-product-images.mjs`
+- `assets/products/`
+- `product-image-sources.json`
 
-You do not need to change `api/x3-report.js`.
+`api/x3-report.js` remains the working X3 server importer. `api/product-image.js` has been removed.
 
-Commit the changes; Vercel should redeploy automatically.
+## If GitHub Actions does not run automatically
+Open GitHub → your repository → Actions → **Cache product packshots** → **Run workflow**. After it finishes, verify that `assets/products/` contains updated product photos. Vercel will then redeploy automatically.
 
-If a specific product still has no image after redeploying, send the product name shown in Product Library and it can be corrected individually.
+## Product library
+34 selected products across the ranked brand engine. Brand enable/disable settings and the phased skincare algorithm from v15 are retained.
+
+Cosmetic skincare maintenance guidance only; not a medical diagnosis or prescription.
