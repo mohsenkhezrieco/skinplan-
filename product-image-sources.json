@@ -24,14 +24,14 @@
     "name": "Azelaic Acid Suspension 10% 30ml",
     "brand": "The Ordinary",
     "sources": [
-      "https://www.bigw.com.au/medias/sys_master/images/images/h05/h24/103068930736158.jpg"
+      "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwedfce090/Images/products/The%20Ordinary/rdn-azelaic-acid-suspension-10pct-100ml.png?sh=900&sm=fit&sw=900"
     ]
   },
   "ord_sal": {
     "name": "Salicylic Acid 2% Solution 30ml",
     "brand": "The Ordinary",
     "sources": [
-      "https://cdn.shantaweb.com/thumbnails/big/products_1766235692_9762.png"
+      "https://theordinary.com/dw/image/v2/BFKJ_PRD/on/demandware.static/-/Sites-deciem-master/default/dwcece52fb/Images/products/The%20Ordinary/rdn-salicylic-acid-2pct-solution-30ml.png?sh=900&sm=fit&sw=900"
     ]
   },
   "ord_nia": {
@@ -129,7 +129,7 @@
     "name": "Anthelios UVMune 400 Oil Control Fluid SPF50+ 50ml",
     "brand": "La Roche-Posay",
     "sources": [
-      "https://www.dischem.co.za/api/catalog/product/3/3/3337875847292_front_7cb42752a4cbf15ce471db5ec9aeeafe.jpg?height=400&image-type=image&store=default&width=400"
+      "https://www.laroche-posay.co.uk/dw/image/v2/AAQP_PRD/on/demandware.static/-/Sites-lrp-ng-master-catalog/default/dw8210e9ef/LRP_Product/Anthelios/3337875847292_Anthelios-UVMune-400-Oil-Control-Invisible-Fluid_50ml_01_La_Roche_Posay.jpg?q=90&sfrm=jpg&sh=900&sm=fit&sw=900"
     ]
   },
   "lrp_retinol_b3": {
@@ -150,7 +150,8 @@
     "name": "Tolérance Control Soothing Skin Recovery Cream 40ml",
     "brand": "Avène",
     "sources": [
-      "https://www.dischem.co.za/api/catalog/product/3/2/3282770138801_front_613231fb47bff10b523c5c780f8ce29a.jpg?height=400&image-type=image&store=default&width=400"
+      "https://media-pierre-fabre.wedia-group.com/api/wedia/dam/transform/u5wa3z31qn5sjxikaymacw7pbf6srdeasour17a/pf_square/u5wa3z31qn5sjxikaymacw7pbf6srdeasour17a?height=800&t=resize&width=800",
+      "https://makeuplaneph.com/cdn/shop/files/AveneToleranceControl40ml.png?v=1709283070&width=1445"
     ]
   },
   "avene_tolerance_balm": {
@@ -206,7 +207,7 @@
     "name": "Sun Pigment Control SPF50+ 50ml",
     "brand": "Eucerin",
     "sources": [
-      "https://www.watsons.ae/cdn/shop/files/ASW200002186_101_0913d3c3-11e6-492d-8c40-04ca7a84058b.jpg?v=1756899570"
+      "https://images-1.eucerin.com/~/media/eucerin%20relaunch%20media/media-center-items/6/4/c/8b0b5e3d67f24a11a5b25b7b8f409cd1-screen.jpg"
     ]
   },
   "eucerin_oil_spf": {
