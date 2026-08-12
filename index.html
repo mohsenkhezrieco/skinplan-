@@ -1,0 +1,517 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b132b">
+<title>SkinPlan Clinic v14 — Website X3 Import</title>
+<link rel="manifest" href="manifest.webmanifest">
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<style>
+:root{--navy:#0b132b;--blue:#174ea6;--lt:#eef4ff;--ink:#172033;--muted:#667085;--gold:#ffca3a;--red:#d64545;--green:#2c9c70}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,Arial;background:#f5f7fb;color:var(--ink)}
+.top{background:linear-gradient(120deg,#071022,#142a5e);color:white;padding:22px}.topin{max-width:1200px;margin:auto;display:flex;justify-content:space-between;align-items:center}
+.top h1{margin:0;font-size:28px}.top p{margin:5px 0 0;color:#c9d5f4}.wrap{max-width:1200px;margin:auto;padding:18px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}.tab{border:0;border-radius:999px;padding:10px 15px;background:white;box-shadow:0 1px 4px #0001}.tab.active{background:#174ea6;color:white}
+.page{display:none}.page.active{display:block}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.card{background:white;border-radius:18px;padding:18px;box-shadow:0 5px 22px #18233b12}
+h2{margin-top:0}.drop{border:2px dashed #9cb2db;padding:20px;border-radius:16px;text-align:center;background:#f8fbff}
+input,select,textarea{width:100%;padding:11px;border:1px solid #d7deeb;border-radius:10px;font:inherit}label{display:block;margin:11px 0 5px;font-size:13px;color:#475467}
+button{border:0;border-radius:11px;padding:11px 14px;font-weight:700;cursor:pointer}.primary{background:#174ea6;color:white}.soft{background:#eaf1ff;color:#174ea6}.danger{background:#ffe8e8;color:#a62f2f}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.small{font-size:12px;color:var(--muted);line-height:1.45}
+.ocrbox{background:#f8fafc;border:1px solid #e5eaf1;border-radius:12px;padding:12px;white-space:pre-wrap;max-height:220px;overflow:auto;font-size:12px}
+.scoregrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.score{background:#f8fafc;border:1px solid #e5eaf1;border-radius:12px;padding:10px}.score.uncertain{background:#fff9e8;border-color:#e8bd58}.score.goodread{background:#f4fbf7;border-color:#9bd3b8}.score .head{display:flex;justify-content:space-between;font-size:13px}.qbadge{font-size:9px;padding:2px 5px;border-radius:999px;background:#e9eef7;color:#667085;margin-left:5px}.score input{padding:6px}
+.catalog{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.prod{background:white;border:1px solid #e3e9f3;border-radius:16px;padding:12px}.prod img{width:100%;height:220px;object-fit:contain;background:white;border-radius:10px}.prod .brand{color:#174ea6;font-weight:800;font-size:12px}.origin{font-size:10px;color:#667085;margin-top:4px}.prod h3{font-size:15px;min-height:38px}.chips{display:flex;gap:5px;flex-wrap:wrap}.chip{font-size:10px;background:#edf2ff;padding:4px 7px;border-radius:999px}
+.report-shell{background:#dfe8f8;padding:20px;border-radius:18px}.report{background:white;max-width:1000px;margin:auto;padding:26px;border-radius:8px;box-shadow:0 8px 30px #0002}
+.rhead{display:flex;justify-content:space-between;border-bottom:3px solid #174ea6;padding-bottom:12px}.rhead h1{margin:0;color:#102a56}.goal{font-size:14px;color:#475467;margin:8px 0 18px}
+.routineTitle{text-align:center;font-size:23px;padding:8px;border-radius:12px;margin:18px 0 14px}.am{background:#fff1a8}.pm{background:#dcecff}
+.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:9px}.rstep{text-align:center;border:1px solid #e5e7eb;border-radius:12px;padding:9px;background:#fff}.rstep .n{width:30px;height:30px;display:grid;place-items:center;margin:auto;border-radius:50%;background:#174ea6;color:white;font-weight:800}.rstep img{width:100%;height:135px;object-fit:contain;margin:7px 0}.rstep b{font-size:13px}.rstep p{font-size:11px;line-height:1.35;color:#475467}
+.note{border:2px solid #f4c32b;background:#fffdf3;padding:12px;border-radius:12px;margin:14px 0}.avoid{border:2px solid #f19b9b;background:#fff8f8;padding:12px;border-radius:12px;margin:14px 0}.week{border:2px solid #8eb4e8;padding:12px;border-radius:12px;margin:14px 0}
+
+.weekdays{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:10px 0 16px}.daybox{border:1px solid #dce3ef;border-radius:10px;padding:8px;text-align:center;font-size:10px;min-height:74px}.daybox b{display:block;font-size:11px;color:#174ea6;margin-bottom:5px}.daybox.treat{background:#eef4ff;border-color:#8eb4e8}.daybox.recover{background:#f8fafc}.footer{font-size:10px;color:#667085;border-top:1px solid #ddd;padding-top:10px;margin-top:16px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:7px}.checks label{display:flex;gap:8px;align-items:center;background:#f8fafc;padding:10px;border-radius:10px}.checks input{width:auto}
+.airow{border:1px solid #cbd8f0;background:#f4f8ff;padding:12px;border-radius:12px;margin-top:12px}
+@media(max-width:800px){.grid,.catalog,.steps,.scoregrid{grid-template-columns:1fr}.weekdays{grid-template-columns:repeat(2,1fr)}.rstep img{height:180px}.report{padding:16px}.checks{grid-template-columns:1fr}}
+@media print{.top,.tabs,.no-print{display:none!important}.wrap{padding:0}.report-shell{padding:0;background:white}.report{box-shadow:none;max-width:none}.page{display:none!important}#generator.page{display:block!important}.card,.grid{display:none!important}@page{size:A4 portrait;margin:5mm}}
+
+
+
+
+.quickgrid{display:grid;grid-template-columns:1fr 110px;gap:6px 10px;align-items:center}
+.quickrow{display:contents}
+.quickname{padding:9px 10px;background:#f8fafc;border:1px solid #e5eaf1;border-radius:10px;font-size:13px}
+.quickinput{font-size:20px;font-weight:800;text-align:center;padding:9px!important}
+.quickinput.activeEntry{outline:3px solid #87a7ff;border-color:#174ea6;background:#f1f5ff}
+.quicktools{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.bulk{display:grid;grid-template-columns:1fr auto;gap:8px}
+.seqbox{border:2px solid #174ea6;background:#f5f8ff;padding:14px;border-radius:14px;margin-top:12px}
+.seqbox .big{font-size:32px;font-weight:900;color:#174ea6}
+@media(max-width:800px){.quickgrid{grid-template-columns:1fr 92px}}
+
+
+.importbox{border:2px solid #8eb4e8;background:#f7faff;padding:15px;border-radius:14px;margin-bottom:14px}
+.importrow{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:end}
+.importstatus{padding:10px 12px;border-radius:10px;background:#f8fafc;border:1px solid #e5eaf1;margin-top:10px;font-size:12px}
+.importstatus.ok{background:#f1fbf6;border-color:#90cfad;color:#176342}
+.importstatus.warn{background:#fff9e8;border-color:#efc35c;color:#7a5400}
+.importstatus.err{background:#fff1f1;border-color:#efa0a0;color:#922}
+.profilegrid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin:12px 0}
+.pstat{background:#f8fafc;border:1px solid #e5eaf1;border-radius:12px;padding:10px}
+.pstat .k{font-size:10px;color:#667085;text-transform:uppercase;letter-spacing:.04em}
+.pstat .v{font-size:20px;font-weight:900;color:#153b78;margin-top:3px}
+.metricgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+.metricrow{display:grid;grid-template-columns:1fr 82px 88px;gap:8px;align-items:center;background:#f8fafc;border:1px solid #e5eaf1;padding:8px;border-radius:11px}
+.metricrow .mlabel{font-size:12px;font-weight:750}
+.metricrow input{font-size:17px;font-weight:800;text-align:center;padding:8px}
+.lvl{font-size:10px;font-weight:850;text-align:center;border-radius:999px;padding:6px 7px}
+.lvl1,.lvl2{background:#e8f8f0;color:#176342}.lvl3{background:#fff4d6;color:#805b00}.lvl4,.lvl5{background:#ffe5e5;color:#9d2424}
+.prioritybox{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:10px 0}
+.prioritycol{border-radius:12px;padding:10px;border:1px solid #e5eaf1;background:#fff}
+.prioritycol h4{margin:0 0 6px}.prioritycol ul{margin:0;padding-left:17px;font-size:11px;line-height:1.5}
+details.advanced{margin-top:10px;border:1px solid #d8dfec;border-radius:10px;padding:9px;background:#fff}
+details.advanced summary{cursor:pointer;font-weight:750;color:#174ea6}
+textarea.jsonpaste{width:100%;min-height:130px;margin-top:8px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11px}
+.apimap{width:100%;border-collapse:collapse;font-size:12px}.apimap th,.apimap td{border-bottom:1px solid #e7ebf2;padding:7px;text-align:left}
+.sourcepill{display:inline-block;background:#eef4ff;color:#174ea6;border-radius:999px;padding:3px 7px;font-size:10px;font-weight:750}
+@media(max-width:800px){.importrow{grid-template-columns:1fr}.profilegrid{grid-template-columns:repeat(2,1fr)}.metricgrid{grid-template-columns:1fr}.prioritybox{grid-template-columns:1fr}.metricrow{grid-template-columns:1fr 72px 80px}}
+
+</style>
+</head><body>
+<div class="top"><div class="topin"><div><h1>SkinPlan AI Clinic</h1><p>X3 report link → secure website import → personalised AM/PM plan</p></div><div>Ordinary-first formulary</div></div></div>
+<div class="wrap">
+<div class="tabs no-print">
+<button class="tab active" data-tab="generator">Generate plan</button>
+<button class="tab" data-tab="catalog">Product library</button>
+<button class="tab" data-tab="rules">Combination logic</button>
+</div>
+
+<section id="generator" class="page active">
+<div class="card no-print">
+<h2>Import X3 report</h2>
+<p class="small">Paste the patient’s X3 share link. The app extracts the share ID, imports the device JSON, maps the 14 displayed indicators and Baumann type, and discards unrelated personal fields.</p>
+
+<div class="importbox">
+  <label>X3 comprehensive-report link</label>
+  <div class="importrow">
+    <input id="x3Link" placeholder="https://x3.aiskinia.com/xcx3skinweb/#/report/comprehensiveReport?shareId=...&qr_id=...">
+    <button class="primary" id="importBtn">Import X3 Report</button>
+  </div>
+  <div id="importStatus" class="importstatus">Paste the X3 share link and tap Import.</div>
+  <div class="small" style="margin-top:8px">The browser sends the link only to this website. The website server fetches X3 and returns only the skincare data needed for the plan.</div>
+</div>
+
+<div id="importedPanel" style="display:none">
+  <h2>Imported device profile <span class="sourcepill">X3 API</span></h2>
+  <div class="profilegrid">
+    <div class="pstat"><div class="k">Baumann type</div><div class="v" id="sumBaumann">—</div></div>
+    <div class="pstat"><div class="k">Moisture</div><div class="v" id="sumMoisture">—</div></div>
+    <div class="pstat"><div class="k">Skin age</div><div class="v" id="sumSkinAge">—</div></div>
+    <div class="pstat"><div class="k">Total score</div><div class="v" id="sumTotal">—</div></div>
+  </div>
+
+  <div class="prioritybox">
+    <div class="prioritycol"><h4>Urgent · Levels IV–V</h4><ul id="urgentList"></ul></div>
+    <div class="prioritycol"><h4>Continuous · Level III</h4><ul id="continuousList"></ul></div>
+    <div class="prioritycol"><h4>Preventive · Levels I–II</h4><ul id="preventiveList"></ul></div>
+  </div>
+
+  <h2>14 X3 indicators</h2>
+  <p class="small">Scores and Levels come directly from the API when available. You can correct a score manually; its Level will then be recalculated using the observed X3 level bands.</p>
+  <div id="metricGrid" class="metricgrid"></div>
+
+  <h2 style="margin-top:18px">Safety screen</h2>
+  <p class="small">These items cannot be reliably obtained from the skin analyser and can change whether treatment actives are appropriate.</p>
+  <div class="checks">
+    <label><input id="preg" type="checkbox">Pregnant / trying / breastfeeding</label>
+    <label><input id="eczema" type="checkbox">Active eczema / dermatitis</label>
+    <label><input id="rosacea" type="checkbox">Rosacea / persistent inflammatory redness</label>
+    <label><input id="rx" type="checkbox">Prescription skin treatment</label>
+    <label><input id="procedure" type="checkbox">Recent peel / laser / microneedling</label>
+    <label><input id="allergy" type="checkbox">Known skincare allergy</label>
+  </div>
+
+  <label>Clinic / patient reference</label>
+  <input id="patient" placeholder="Initials or clinic reference">
+  <div class="actions"><button class="primary" id="genBtn">Generate Personalised Plan</button></div>
+</div>
+</div>
+
+<div id="reportArea" class="report-shell" style="display:none;margin-top:18px">
+  <div class="no-print actions"><button class="primary" onclick="window.print()">Print / Save PDF</button><button class="soft" id="pngBtn">Download as PNG image</button></div>
+  <div class="report" id="report"></div>
+</div>
+</section>
+
+<section id="catalog" class="page"><div class="card"><h2>Focused product library</h2>
+    <p class="small">A deliberately small formulary: The Ordinary is preferred for barrier care, moisturisers and targeted serums; CeraVe is retained for gentle cleansers, SPF50 and the conservative starter retinol where it has a clearer role in this engine.</p>
+    <div id="catalogGrid" class="catalog"></div></div></section>
+<section id="rules" class="page"><div class="card"><h2>Combination logic</h2><div id="rulesText"></div></div></section>
+</div>
+<script>
+
+
+let PRODUCTS=[{"id":"cerave_hydrating","brand":"CeraVe","name":"Hydrating Cleanser 236ml","bootsId":"10246701","image":"https://boots.scene7.com/is/image/Boots/10246701?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"cleanser","tags":["dry","sensitive","gentle","daily"],"boots":"https://www.boots.com/cerave/cerave-dry-normal-skin/cerave-hydrating-cleanser-236ml-10246701-"},{"id":"cerave_foaming","brand":"CeraVe","name":"Foaming Cleanser 236ml","bootsId":"10246702","image":"https://boots.scene7.com/is/image/Boots/10246702?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"cleanser","tags":["oily","resistant","daily"],"boots":"https://www.boots.com/cerave-foaming-cleanser-236ml-10246702"},{"id":"cerave_am_spf","brand":"CeraVe","name":"AM Facial Moisturising Lotion SPF50","bootsId":"10311334","image":"https://boots.scene7.com/is/image/Boots/10311334?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"spf","tags":["SPF50","UVA/UVB","pigmentation","retinoid-support"],"boots":"https://www.boots.com/beauty/skincare/expert-skincare-/beauty-expert-skincare-expert-skincare-shop-all/cerave-am-facial-moisturising-lotion-spf-50-for-normal-to-dry-skin-52ml-10311334"},{"id":"cerave_retinol","brand":"CeraVe","name":"Resurfacing Retinol Serum 30ml","bootsId":"10315626","image":"https://boots.scene7.com/is/image/Boots/10315626?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"retinoid","tags":["retinol","post-acne marks","texture","barrier-supporting formula"],"boots":"https://www.boots.com/cerave-resurfacing-retinol-serum-with-ceramides--niacinamide-for-blemish-prone-skin-30ml-10315626"},{"id":"ord_nmf_ha","brand":"The Ordinary","name":"Natural Moisturizing Factors + HA","bootsId":"10267782","image":"https://boots.scene7.com/is/image/Boots/10267782?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"moisturiser","tags":["daily","normal","dry","barrier"],"boots":"https://www.boots.com/the-ordinary/the-ordinary-moisturisers/the-ordinary-natural-moisturizing-factors-ha-10267782"},{"id":"ord_phyto","brand":"The Ordinary","name":"Natural Moisturizing Factors + PhytoCeramides 100ml","bootsId":"10330796","image":"https://boots.scene7.com/is/image/Boots/10330796?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"moisturiser","tags":["dry","very-dry","compromised barrier","rich"],"boots":"https://www.boots.com/the-ordinary-natural-moistizing-factors-phytoceramides-100ml-10330796"},{"id":"ord_beta","brand":"The Ordinary","name":"Natural Moisturizing Factors + Beta Glucan 100ml","bootsId":"10329958","image":"https://boots.scene7.com/is/image/Boots/10329958?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"moisturiser","tags":["oily","combination","sensitive","lightweight"],"boots":"https://www.boots.com/the-ordinary/the-ordinary-moisturisers/the-ordinary-natural-moisturizing-factors-beta-glucan-100ml-10329958"},{"id":"ord_barrier","brand":"The Ordinary","name":"Soothing & Barrier Support Serum 30ml","bootsId":"10335060","image":"https://boots.scene7.com/is/image/Boots/10335060?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"serum","tags":["barrier","sensitive","redness","hydration"],"boots":"https://www.boots.com/the-ordinary-soothing-and-barrier-support-serum-10335060"},{"id":"ord_az","brand":"The Ordinary","name":"Azelaic Acid Suspension 10% 30ml","bootsId":"10267775","image":"https://boots.scene7.com/is/image/Boots/10267775?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"active","tags":["uneven tone","blemish-prone","redness","texture"],"boots":"https://www.boots.com/the-ordinary-azelaic-acid-suspension-10-10267775/"},{"id":"ord_sal","brand":"The Ordinary","name":"Salicylic Acid 2% Solution 30ml","bootsId":"10317695","image":"https://boots.scene7.com/is/image/Boots/10317695?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"active","tags":["congestion","blackheads","pores","blemish-prone"],"boots":"https://www.boots.com/the-ordinary/the-ordinary-direct-acids/the-ordinary-salicylic-acid-2solution-30ml-10317695"},{"id":"ord_nia","brand":"The Ordinary","name":"Niacinamide 10% + Zinc 1% 30ml","bootsId":"10267783","image":"https://boots.scene7.com/is/image/Boots/10267783?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"support-serum","tags":["oily","shine","pores","tone"],"boots":"https://www.boots.com/the-ordinary-niacinamide-10-zinc-1-10267783"},{"id":"ord_aloe","brand":"The Ordinary","name":"Aloe 2% + NAG 2% Solution 30ml","bootsId":"10328368","image":"https://boots.scene7.com/is/image/Boots/10328368?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"support-serum","tags":["post-blemish marks","texture","redness","barrier"],"boots":"https://www.boots.com/beauty/vegan-range/the-ordinary-aloe-2--nag-2-solution-30ml-10328368"},{"id":"ord_peptide","brand":"The Ordinary","name":"Multi-Peptide + HA Serum 30ml","bootsId":"10320154","image":"https://boots.scene7.com/is/image/Boots/10320154?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"support-serum","tags":["fine lines","firmness","texture","hydration"],"boots":"https://www.boots.com/beauty/skincare/facial-skincare/anti-aging-products/the-ordinary-multi-peptide-ha-serum-30ml-10320154"},{"id":"ord_spf45","brand":"The Ordinary","name":"UV Filters SPF 45 Serum 60ml","bootsId":"10361174","image":"https://boots.scene7.com/is/image/Boots/10361174?wid=800&hei=800&fmt=png-alpha&op_sharpen=1","role":"spf","tags":["SPF45","UVA/UVB","lightweight","all skin types"],"boots":"https://www.boots.com/the-ordinary-uv-filters-spf-45-serum-60ml-10361174"}];
+
+const METRICS=[
+ {id:'acne',label:'Acne',paths:['pockmark','reflection']},
+ {id:'blackhead',label:'Blackhead',paths:['blackhead']},
+ {id:'pore',label:'Pore',paths:['pore']},
+ {id:'oil',label:'Oil',paths:['deep_grease']},
+ {id:'bacteria',label:'Bacteria',paths:['acne']},
+ {id:'surfaceSensitivity',label:'Surface sensitivity',paths:['sensitive']},
+ {id:'deepSensitivity',label:'Deep sensitivity',paths:['red_area']},
+ {id:'surfaceSpot',label:'Surface spot',paths:['spot']},
+ {id:'deepSpot',label:'Deep spot',paths:['uv_spot']},
+ {id:'spotHeat',label:'Spot heat',paths:['hotmap_spot']},
+ {id:'skinColor',label:'Skin colour',paths:['color']},
+ {id:'wrinkle',label:'Wrinkle',paths:['wrinkle']},
+ {id:'collagen',label:'Collagen',paths:['collagen']},
+ {id:'texture',label:'Texture',paths:['roughness']}
+];
+
+let state={loaded:false,source:'',shareId:'',baumann:'',moisture:null,skinAge:null,totalScore:null,metrics:{}};
+
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+ document.querySelectorAll('.tab,.page').forEach(x=>x.classList.remove('active'));
+ b.classList.add('active');document.getElementById(b.dataset.tab).classList.add('active');
+});
+
+function P(id){return PRODUCTS.find(x=>x.id===id)}
+function card(p){return `<div class="prod"><img crossorigin="anonymous" referrerpolicy="no-referrer" src="${p.image}" onerror="this.style.opacity='.2';this.alt='Image temporarily unavailable'"><div class="brand">${p.brand}</div><div class="origin">Original Boots product packshot</div><h3>${p.name}</h3><div class="chips">${p.tags.map(t=>`<span class="chip">${t}</span>`).join('')}</div><div class="actions"><a href="${p.boots}" target="_blank" rel="noopener"><button class="soft">View at Boots</button></a></div></div>`}
+function renderCatalog(){document.getElementById('catalogGrid').innerHTML=PRODUCTS.map(card).join('')}
+renderCatalog();
+
+function deriveLevel(score){
+ score=Number(score);
+ if(score<=29)return 5;
+ if(score<=49)return 4;
+ if(score<=69)return 3;
+ if(score<=89)return 2;
+ return 1;
+}
+function categoryFromLevel(level){return level>=4?'urgent':level===3?'continuous':'preventive'}
+function pathObject(analysis,paths){
+ for(const p of paths){if(analysis && analysis[p] && typeof analysis[p]==='object')return analysis[p]}
+ return null;
+}
+function normaliseX3(raw){
+ // Sanitised bridge format
+ if(raw && raw.metrics && raw.baumann){
+   const out={loaded:true,source:'bridge',shareId:raw.shareId||'',baumann:raw.baumann||'',moisture:raw.moisture??null,skinAge:raw.skinAge??null,totalScore:raw.totalScore??null,metrics:{}};
+   for(const def of METRICS){
+     const m=raw.metrics[def.id];
+     if(!m || m.score===undefined)throw new Error(`Missing ${def.label} in bridge response.`);
+     out.metrics[def.id]={score:Number(m.score),level:Number(m.level||deriveLevel(m.score)),source:m.source||'bridge'};
+   }
+   return out;
+ }
+ const a=raw?.analysis;
+ if(!a)throw new Error('This does not look like an X3 shareDetail response (analysis object missing).');
+ const out={
+   loaded:true,source:'direct',shareId:raw.shareId||a.id||'',
+   baumann:a.bowman_type?.type||'',
+   moisture:a.water?.result??a.water?.score??null,
+   skinAge:a.age?.result??null,
+   totalScore:a.final_result?.score??raw.score??null,
+   metrics:{}
+ };
+ for(const def of METRICS){
+   const obj=pathObject(a,def.paths);
+   if(!obj || obj.score===undefined || obj.score===null)throw new Error(`X3 response is missing ${def.label}.`);
+   out.metrics[def.id]={score:Number(obj.score),level:Number(obj.level||deriveLevel(obj.score)),source:def.paths.find(p=>a[p]===obj)||def.paths[0]};
+ }
+ if(!out.baumann)throw new Error('Baumann type was not found in the X3 response.');
+ return out;
+}
+
+function cleanReportLink(text){
+ let t=(text||'').trim().replace(/\\&/g,'&').replace(/\^&/g,'&');
+ const md=t.match(/\]\((https?:\/\/[^)]+)\)/);if(md)t=md[1];
+ return t;
+}
+function setStatus(text,kind=''){
+ const el=document.getElementById('importStatus');el.textContent=text;el.className='importstatus '+kind;
+}
+async function importLink(){
+ const btn=document.getElementById('importBtn'),old=btn.textContent;
+ try{
+   btn.disabled=true;btn.textContent='Importing…';
+   setStatus('Fetching the X3 report through this website…');
+   const reportUrl=cleanReportLink(document.getElementById('x3Link').value);
+   if(!reportUrl)throw new Error('Paste the X3 report link first.');
+   const r=await fetch('/api/x3-report',{
+     method:'POST',
+     headers:{'Content-Type':'application/json'},
+     body:JSON.stringify({url:reportUrl})
+   });
+   const payload=await r.json().catch(()=>({}));
+   if(!r.ok)throw new Error(payload.error||`Import failed (HTTP ${r.status}).`);
+   state=normaliseX3(payload);
+   renderImported();
+   setStatus('X3 report imported successfully. Personal identifiers are not returned to the browser.','ok');
+ }catch(e){
+   console.error(e);
+   setStatus(e.message,'err');
+ }finally{
+   btn.disabled=false;btn.textContent=old;
+ }
+}
+document.getElementById('importBtn').onclick=importLink;
+
+function renderImported(){
+ document.getElementById('importedPanel').style.display='block';
+ document.getElementById('sumBaumann').textContent=state.baumann||'—';
+ document.getElementById('sumMoisture').textContent=state.moisture!==null?`${state.moisture}%`:'—';
+ document.getElementById('sumSkinAge').textContent=state.skinAge!==null?`${state.skinAge}`:'—';
+ document.getElementById('sumTotal').textContent=state.totalScore!==null?`${state.totalScore}`:'—';
+
+ const grid=document.getElementById('metricGrid');grid.innerHTML='';
+ for(const def of METRICS){
+   const m=state.metrics[def.id];
+   grid.insertAdjacentHTML('beforeend',`<div class="metricrow">
+     <div class="mlabel">${def.label}<div class="small">${m.source}</div></div>
+     <input id="metric_${def.id}" type="number" min="0" max="100" value="${m.score}" aria-label="${def.label} score">
+     <div id="level_${def.id}" class="lvl lvl${m.level}">Level ${roman(m.level)}</div>
+   </div>`);
+   document.getElementById('metric_'+def.id).addEventListener('change',e=>{
+     let v=Math.max(0,Math.min(100,Number(e.target.value)));e.target.value=v;
+     state.metrics[def.id].score=v;state.metrics[def.id].level=deriveLevel(v);state.metrics[def.id].source='manual correction';
+     renderLevel(def.id);renderPriorities();
+   });
+ }
+ renderPriorities();
+}
+function roman(n){return ['','I','II','III','IV','V'][Number(n)]||n}
+function renderLevel(id){
+ const m=state.metrics[id],el=document.getElementById('level_'+id);
+ if(el){el.className='lvl lvl'+m.level;el.textContent='Level '+roman(m.level)}
+}
+function renderPriorities(){
+ const groups={urgent:[],continuous:[],preventive:[]};
+ for(const def of METRICS){
+   const m=state.metrics[def.id];
+   groups[categoryFromLevel(m.level)].push(`${def.label} ${m.score} · L${roman(m.level)}`);
+ }
+ document.getElementById('urgentList').innerHTML=groups.urgent.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
+ document.getElementById('continuousList').innerHTML=groups.continuous.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
+ document.getElementById('preventiveList').innerHTML=groups.preventive.map(x=>`<li>${x}</li>`).join('')||'<li>None</li>';
+}
+
+document.getElementById('importBtn').onclick=importLink;
+
+function M(id){return state.metrics[id]}
+function maxLevel(...ids){return Math.max(...ids.map(id=>M(id).level))}
+function flags(){
+ return {
+   preg:document.getElementById('preg').checked,
+   eczema:document.getElementById('eczema').checked,
+   rosacea:document.getElementById('rosacea').checked,
+   rx:document.getElementById('rx').checked,
+   procedure:document.getElementById('procedure').checked,
+   allergy:document.getElementById('allergy').checked
+ };
+}
+
+function choosePlan(){
+ const f=flags(),btype=state.baumann;
+ const D=btype[0]==='D',O=btype[0]==='O',S=btype[1]==='S',PIG=btype[2]==='P',W=btype[3]==='W';
+
+ // Full X3 domains. The API's own Level is used whenever present.
+ const barrier=Math.max(M('surfaceSensitivity').level,M('deepSensitivity').level,M('spotHeat').level);
+ const pigment=Math.max(M('surfaceSpot').level,M('deepSpot').level,M('spotHeat').level,M('skinColor').level);
+ const acne=M('acne').level;
+ const bacteria=M('bacteria').level;
+ const congestion=Math.max(M('blackhead').level,M('pore').level);
+ const ageing=Math.max(M('wrinkle').level,M('collagen').level,M('texture').level);
+
+ const hardHold=f.preg||f.eczema||f.rosacea||f.rx||f.procedure||f.allergy;
+ const barrierFirst=barrier>=4 || (S&&barrier>=3);
+ const pigmentPriority=pigment>=4 || (PIG&&pigment>=3);
+ const acnePriority=acne>=4 || (acne>=3&&bacteria>=4);
+ const congestionPriority=congestion>=4 || (congestion>=3&&!barrierFirst);
+ const ageingPriority=ageing>=4 || (W&&ageing>=3);
+
+ // Oil is not used as a direct acne trigger. In this X3 dataset high Oil score/low level may represent low sebum.
+ const lowSebumSignal=M('oil').level<=1;
+ const lowMoisture=state.moisture!==null && Number(state.moisture)<30;
+
+ const cleanser=(D||S||barrier>=3)?P('cerave_hydrating'):P('cerave_foaming');
+ const moisturiser=(D||lowMoisture||lowSebumSignal||barrier>=4)?P('ord_phyto'):(O?P('ord_beta'):P('ord_nmf_ha'));
+ const spf=(pigment>=3||ageing>=3||barrier>=4)?P('cerave_am_spf'):P('ord_spf45');
+
+ let am=[],pm=[],recovery=[],weekly=[],phase2=[],avoid=[],referral=[],starter=['Recovery','Recovery','Recovery','Recovery','Recovery','Recovery','Recovery'];
+ let mode='Maintenance',goal='maintain barrier function and daily UV protection with the smallest useful routine.';
+
+ const simpleRecovery=()=>[
+   [cleanser,'Cleanse','Cleanse gently with lukewarm water; avoid scrubbing.'],
+   [moisturiser,'Moisturise','Apply a comfortable layer over face and neck.']
+ ];
+ const barrierRecovery=()=>[
+   [cleanser,'Cleanse','Cleanse gently with lukewarm water; avoid scrubbing.'],
+   [P('ord_barrier'),'Barrier support','Apply 2–3 drops over the face.'],
+   [moisturiser,'Moisturise','Apply a comfortable layer over face and neck.']
+ ];
+
+ if(hardHold){
+   mode='Safety / recovery only';
+   goal='protect the barrier and avoid automatically starting treatment actives until the safety issue has been checked.';
+   am=[[cleanser,'Cleanse','Use a gentle cleanse.'],[P('ord_barrier'),'Barrier support','Apply 2–3 drops.'],[moisturiser,'Moisturise','Apply a comfortable layer.'],[spf,'Protect','Apply sunscreen liberally every morning.']];
+   pm=barrierRecovery();recovery=barrierRecovery();
+   weekly=['Use recovery care only until the relevant safety issue has been reviewed.'];
+   if(f.preg)avoid.push('Retinoids are excluded. Check treatment actives with a pharmacist, GP or midwife during pregnancy/trying/breastfeeding.');
+   if(f.rx)avoid.push('Do not add new active products around prescription skin treatment without checking the combination with the prescriber/pharmacist.');
+   if(f.procedure)avoid.push('Follow the treating clinician’s aftercare before restarting acids or retinoids.');
+   if(f.eczema||f.rosacea)avoid.push('Do not auto-start acids or retinoids while active eczema/dermatitis, rosacea or persistent inflammatory redness is present.');
+   if(f.allergy)avoid.push('Known skincare allergy: ingredient-level review and patch testing are needed before recommending new products.');
+ }
+ else if(barrierFirst){
+   mode='Barrier repair first';
+   goal='stabilise sensitivity/inflammation before introducing a single targeted active.';
+   am=[[cleanser,'Cleanse','Cleanse gently; skip a morning cleanse if it feels drying.'],[P('ord_barrier'),'Soothe & repair','Apply 2–3 drops.'],[moisturiser,'Moisturise','Apply a comfortable layer.'],[P('cerave_am_spf'),'Protect SPF50','Apply liberally every morning.']];
+   pm=barrierRecovery();recovery=barrierRecovery();
+   weekly=['Weeks 1–2: barrier/recovery routine only.','Only progress if there is no persistent burning, marked redness, swelling or peeling.'];
+
+   if(pigmentPriority||acnePriority){
+     phase2.push('First targeted active: The Ordinary Azelaic Acid 10% on 1–2 non-consecutive evenings per week. If comfortable, increase slowly to 3 evenings per week.');
+   }else if(congestionPriority){
+     phase2.push('If congestion remains important after the barrier is stable, introduce The Ordinary Salicylic Acid 2% on 1 evening per week, then at most 2–3 nights if tolerated.');
+   }
+   if(ageingPriority){
+     phase2.push('Ageing is deliberately delayed. Start with The Ordinary Multi-Peptide + HA on recovery evenings; consider a retinol phase only after the barrier has remained stable.');
+   }
+   avoid.push('Do not start salicylic acid or retinol during the initial barrier-repair phase.');
+ }
+ else if(acnePriority || pigmentPriority){
+   mode=(acnePriority&&pigmentPriority)?'Acne + pigmentation':'Targeted azelaic-acid pathway';
+   goal='use one shared primary active for blemish/inflammation-related pigmentation while keeping UV protection consistent.';
+   am=[[cleanser,'Cleanse','Cleanse gently.'],[moisturiser,'Moisturise','Apply as needed.'],[P('cerave_am_spf'),'Protect SPF50','Apply liberally every morning.']];
+   pm=[[cleanser,'Cleanse','Cleanse gently and pat dry.'],[P('ord_az'),'Primary active — Azelaic Acid 10%','Use a pea-sized amount on scheduled evenings.'],[moisturiser,'Moisturise','Finish with moisturiser.']];
+   recovery=simpleRecovery();starter=['Azelaic','Recovery','Azelaic','Recovery','Azelaic','Recovery','Recovery'];
+   weekly=['Weeks 1–2: 3 non-consecutive azelaic-acid nights.','Week 3+: increase only if comfortable; keep recovery nights.'];
+   if(congestionPriority)phase2.push('If blackheads/pores remain important after 4–6 stable weeks, replace ONE azelaic night with a salicylic-acid night; do not layer them together.');
+   if(ageingPriority)phase2.push('Address ageing after the pigmentation/acne routine is stable; use peptides first, then consider retinol on a separate night if the barrier remains robust.');
+ }
+ else if(congestionPriority){
+   mode='Congestion / blackheads / pores';
+   goal='reduce congestion without unnecessary acid stacking.';
+   const addNia=O && M('oil').level>=3 && barrier<=2;
+   am=[[cleanser,'Cleanse','Cleanse gently.']];
+   if(addNia)am.push([P('ord_nia'),'Oil & pore support','Apply 2–3 drops once daily.']);
+   am.push([moisturiser,'Moisturise','Apply as needed.'],[spf,'Protect','Apply sunscreen liberally every morning.']);
+   pm=[[cleanser,'Cleanse','Cleanse gently and pat dry.'],[P('ord_sal'),'Primary active — Salicylic Acid 2%','Use a thin layer on scheduled evenings.'],[moisturiser,'Moisturise','Finish with moisturiser.']];
+   recovery=simpleRecovery();starter=['Salicylic','Recovery','Recovery','Salicylic','Recovery','Recovery','Recovery'];
+   weekly=['Week 1: 2 salicylic-acid nights.','Week 2+: increase to 3 nights only if still needed and well tolerated.'];
+   avoid.push('Do not use another salicylic-acid cleanser, gel or serum on the same night.');
+   if(pigment>=3)phase2.push('If post-blemish pigmentation becomes the main concern, switch the primary active to azelaic acid rather than stacking another acid.');
+ }
+ else if(ageingPriority){
+   mode='Ageing / texture';
+   goal='support wrinkles/texture while keeping the active schedule conservative.';
+   am=[[cleanser,'Cleanse','Cleanse gently.'],[P('ord_peptide'),'Multi-Peptide + HA','Apply 2–3 drops.'],[moisturiser,'Moisturise','Apply as needed.'],[P('cerave_am_spf'),'Protect SPF50','Apply liberally every morning.']];
+   recovery=simpleRecovery();
+
+   if(barrier<=2 && !S && Math.max(M('wrinkle').level,M('texture').level)>=4){
+     pm=[[cleanser,'Cleanse','Cleanse gently and allow the skin to dry.'],[P('cerave_retinol'),'Starter retinol','Apply a small pea-sized amount on scheduled evenings.'],[moisturiser,'Moisturise','Finish with moisturiser.']];
+     starter=['Retinol','Recovery','Recovery','Recovery','Retinol','Recovery','Recovery'];
+     weekly=['If new to retinol, use once weekly for the first 1–2 weeks.','A second non-consecutive night may be added only if comfortable.'];
+     avoid.push('Do not use salicylic/other direct acids on retinol nights.');
+   }else{
+     pm=[[cleanser,'Cleanse','Cleanse gently.'],[P('ord_peptide'),'Multi-Peptide + HA','Apply 2–3 drops.'],[moisturiser,'Moisturise','Finish with moisturiser.']];
+     starter=['Peptide','Recovery','Peptide','Recovery','Peptide','Recovery','Recovery'];
+     weekly=['Use peptide support 3 evenings per week initially; retinol is not automatically required for a sensitive or borderline profile.'];
+   }
+ }
+ else{
+   am=[[cleanser,'Cleanse','Cleanse gently.'],[moisturiser,'Moisturise','Apply a comfortable layer.'],[spf,'Protect','Apply sunscreen liberally every morning.']];
+   pm=simpleRecovery();recovery=simpleRecovery();weekly=['No treatment active is required from the current device profile.'];
+ }
+
+ avoid.push('Introduce only one new treatment active at a time.');
+ avoid.push('Do not stack azelaic acid, salicylic acid and retinoids in the same evening routine.');
+ avoid.push('Stop a new active if persistent burning, swelling, blistering, rash or marked worsening occurs.');
+
+ if(M('surfaceSpot').level>=5 || M('spotHeat').level>=5){
+   referral.push('The X3 report flags very high pigmentation/spot burden. If pigmentation is new, changing, asymmetric, bleeding, or the diagnosis is uncertain, obtain medical assessment rather than treating it only as a cosmetic pigmentation problem.');
+ }
+ if(M('acne').level>=4){
+   referral.push('A low X3 acne score is not a medical acne severity grade. Painful nodules/cysts, scarring, widespread inflammatory acne or worsening disease should be assessed by a pharmacist/GP/dermatology service.');
+ }
+
+ return {am,pm,recovery,weekly,phase2,avoid,referral,starter,mode,goal,
+   domains:{barrier,pigment,acne,bacteria,congestion,ageing},
+   baumann:btype,moisture:state.moisture,skinAge:state.skinAge};
+}
+
+function stepHTML(arr,i){
+ const [p,title,use]=arr;
+ return `<div class="rstep"><div class="n">${i+1}</div><img crossorigin="anonymous" referrerpolicy="no-referrer" src="${p.image}" onerror="this.style.opacity='.2';this.alt='Product image unavailable'"><b>${title}</b><p><strong>${p.brand}</strong><br>${p.name}</p><p>${use}</p></div>`;
+}
+function scheduleHTML(starter){
+ const days=['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+ return `<div class="weekdays">${days.map((d,i)=>`<div class="daybox ${starter[i]==='Recovery'?'recover':'treat'}"><b>${d}</b>${starter[i]}</div>`).join('')}</div>`;
+}
+function priorityText(){
+ const arr=[];
+ for(const def of METRICS){const m=M(def.id);if(m.level>=4)arr.push(def.label)}
+ return arr.join(', ')||'No Level IV–V indicators';
+}
+
+function generate(){
+ try{
+   if(!state.loaded)throw new Error('Import an X3 report first.');
+   const plan=choosePlan(),ref=(document.getElementById('patient').value||'Patient').replace(/[<>]/g,'');
+   document.getElementById('report').innerHTML=`
+   <div class="rhead"><div><h1>Personalised Skin Maintenance Plan</h1><div>AM + PM routine</div></div><div><b>${ref}</b><br><small>Generated from X3 device data</small></div></div>
+   <div class="goal"><b>Baumann:</b> ${plan.baumann} &nbsp; <b>Moisture:</b> ${plan.moisture??'—'}${plan.moisture!==null?'%':''} &nbsp; <b>Skin age:</b> ${plan.skinAge??'—'}<br>
+   <b>X3 Level IV–V priorities:</b> ${priorityText()}<br><b>Plan goal:</b> ${plan.goal}</div>
+
+   <div class="routineTitle am">☀ MORNING — EVERY DAY</div>
+   <div class="steps">${plan.am.map(stepHTML).join('')}</div>
+   <div class="note"><b>Sun protection:</b> use the recommended sunscreen as the final morning step and reapply during sustained outdoor exposure.</div>
+
+   <div class="routineTitle pm">☾ EVENING</div>
+   <h3 style="color:#174ea6;margin-bottom:8px">Treatment nights — ${plan.mode}</h3>
+   <div class="steps">${plan.pm.map(stepHTML).join('')}</div>
+
+   <h3 style="color:#174ea6;margin:16px 0 8px">Recovery nights</h3>
+   <div class="steps">${plan.recovery.map(stepHTML).join('')}</div>
+
+   <div class="week"><b>Starter week</b>${scheduleHTML(plan.starter)}<b>Progression</b><ul>${plan.weekly.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+   ${plan.phase2.length?`<div class="note"><b>Phase 2 — only after the starter phase is stable</b><ul>${plan.phase2.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
+   <div class="avoid"><b>Do not use / pause</b><ul>${plan.avoid.map(x=>`<li>${x}</li>`).join('')}</ul></div>
+   ${plan.referral.length?`<div class="avoid"><b>When this plan is not enough</b><ul>${plan.referral.map(x=>`<li>${x}</li>`).join('')}</ul></div>`:''}
+   <div class="footer">Cosmetic skincare maintenance guidance only — not a diagnosis or prescription. X3 scores/Levels and Baumann type are device-derived inputs. Safety flags override automatic active selection. Product availability and labels should be checked before supply.</div>`;
+
+   const ra=document.getElementById('reportArea');ra.style.display='block';ra.scrollIntoView({behavior:'smooth'});
+ }catch(e){alert(e.message)}
+}
+document.getElementById('genBtn').onclick=generate;
+
+document.getElementById('pngBtn').onclick=async()=>{
+ const btn=document.getElementById('pngBtn'),old=btn.textContent;btn.disabled=true;btn.textContent='Preparing image…';
+ try{
+   const imgs=[...document.querySelectorAll('#report img')];
+   await Promise.all(imgs.map(img=>img.complete?Promise.resolve():new Promise(r=>{img.onload=r;img.onerror=r;setTimeout(r,5000)})));
+   const c=await html2canvas(document.getElementById('report'),{scale:2,useCORS:true,allowTaint:false,backgroundColor:'#fff',imageTimeout:10000});
+   const a=document.createElement('a');a.download='personalised-skin-plan.png';a.href=c.toDataURL('image/png',1);a.click();
+ }catch(e){alert('PNG export could not include one or more remote product images. Use Print / Save PDF or try again while online.')}
+ finally{btn.disabled=false;btn.textContent=old}
+};
+
+document.getElementById('rulesText').innerHTML=`
+<p><b>Direct X3 data:</b> the app maps the 14 displayed indicators from the shareDetail JSON. It uses the API’s own Level I–V when supplied; score-to-Level conversion is only a manual-edit fallback.</p>
+<table class="apimap"><tr><th>Displayed X3 indicator</th><th>API field</th></tr>
+${METRICS.map(m=>`<tr><td>${m.label}</td><td><code>analysis.${m.paths[0]}.score / .level</code>${m.paths.length>1?` (fallback: ${m.paths.slice(1).join(', ')})`:''}</td></tr>`).join('')}
+</table>
+<p><b>Device priority groups:</b> Levels IV–V are treated as Urgent device flags; Level III as Continuous; Levels I–II as Preventive. These are used to order the skincare response, not as medical diagnoses.</p>
+<p><b>Algorithm priority:</b> safety → barrier/inflammation (surface sensitivity + deep sensitivity + spot heat) → acne → pigmentation (surface/deep spot + heatmap + skin colour) → congestion (blackhead + pore) → ageing/structure (wrinkle + collagen + texture).</p>
+<p><b>Oil and bacteria:</b> they are retained because they help characterize the profile, but they do not independently trigger a strong active. In particular, Oil is not treated as a simple “more oil = worse acne” score.</p>
+<p><b>Baumann:</b> D/O influences base cleanser/moisturiser weight; S increases caution; P and W modify priority. The measured X3 Levels still drive the active-treatment pathway.</p>
+<p><b>Barrier rule:</b> Level IV–V barrier/inflammation, or a Baumann-sensitive profile with Level III barrier concern, starts with recovery care before acids/retinoids.</p>
+<p><b>One-active rule:</b> mixed concerns are phased. Azelaic acid is the shared first active when acne/pigmentation dominate; salicylic acid is reserved for congestion after barrier tolerance is acceptable; ageing is delayed when inflammation/pigmentation has higher priority.</p>
+<p><b>Formulary:</b> The Ordinary is preferred for barrier serum, moisturisers and targeted actives. CeraVe is retained mainly for cleansers, SPF50 and the conservative starter retinol.</p>
+<p><b>Privacy:</b> the importer deliberately ignores mobile number, birthday, user IDs and the source facial-image URLs. The server returns only the skincare fields required by the plan; patient phone number, birthday, user/customer IDs and facial-image URLs are not sent to the browser.</p>
+`;
+
+if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(()=>{})}
+
+
+</script></body></html>
