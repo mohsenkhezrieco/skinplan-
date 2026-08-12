@@ -1,16 +1,15 @@
 {
-  "name": "SkinPlan AI Clinic",
-  "short_name": "SkinPlan AI",
-  "start_url": "./",
+  "name": "SkinPlan Clinic",
+  "short_name": "SkinPlan",
+  "start_url": "/",
   "display": "standalone",
-  "background_color": "#f5f7fb",
-  "theme_color": "#0b132b",
+  "background_color": "#121438",
+  "theme_color": "#272764",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "type": "image/svg+xml"
     }
   ]
 }
